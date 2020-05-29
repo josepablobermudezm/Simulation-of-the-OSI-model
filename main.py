@@ -1,6 +1,7 @@
 from Clases import aplicacion
 import msvcrt
 import os
+import keyboard  # using module keyboard
 
 def teclapresionada():
     palabra=""
@@ -9,8 +10,7 @@ def teclapresionada():
         c = msvcrt.getch()
         os.system ("cls")
         valor = ord(c.upper())
-        print(valor-31)
-        if valor>=32 and valor!=77 and valor!=75 and valor!=80 and valor!=72:
+        if valor>=32 and not keyboard.is_pressed('down arrow') and not keyboard.is_pressed('up arrow') and not keyboard.is_pressed('left arrow') and not keyboard.is_pressed('right arrow'):
             if (valor<47 or valor>59) and valor!=32 and valor-31!=11:
                 valor-=31
                 letra = chr(valor)
