@@ -10,7 +10,9 @@ def teclapresionada():
         c = msvcrt.getch()
         os.system ("cls")
         valor = ord(c.upper())
-        if valor>=32 and not keyboard.is_pressed('down arrow') and not keyboard.is_pressed('up arrow') and not keyboard.is_pressed('left arrow') and not keyboard.is_pressed('right arrow'):
+        if (valor>=32 and not keyboard.is_pressed('down arrow') 
+        and not keyboard.is_pressed('up arrow') and not keyboard.is_pressed('left arrow') 
+        and not keyboard.is_pressed('right arrow') and valor != 164 and valor != 165):
             if (valor<47 or valor>59) and valor!=32 and valor-31!=11:
                 valor-=31
                 letra = chr(valor)
