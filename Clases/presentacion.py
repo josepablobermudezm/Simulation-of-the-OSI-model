@@ -7,6 +7,4 @@ class presentacion:
         """Imprime un saludo en pantalla."""
         print(f"¡Hola, {self.nombre}!")
 
-
-presentacion = presentacion("Pablo")
-presentacion.metodo()
+#presentacion = presentacion("Pablo")

@@ -1,4 +1,4 @@
-class aplicacion:
+class transporte:
 
     def __init__(self, nombre):
         self.nombre = nombre
@@ -6,7 +6,3 @@ class aplicacion:
     def metodo(self):
         """Imprime un saludo en pantalla."""
         print(f"¡Hola, {self.nombre}!")
-
-
-presentacion = aplicacion("Pablo")
-presentacion.metodo()

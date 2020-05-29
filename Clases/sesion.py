@@ -6,7 +6,3 @@ class sesion:
     def metodo(self):
         """Imprime un saludo en pantalla."""
         print(f"¡Hola, {self.nombre}!")
-
-
-presentacion = sesion("Pablo")
-presentacion.metodo()
