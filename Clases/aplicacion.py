@@ -1,7 +1,7 @@
 import msvcrt
 import os
 import keyboard  # using module keyboard
-from Clases import presentacion
+from .presentacion import presentacion
 
 class aplicacion:
 

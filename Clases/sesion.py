@@ -1,5 +1,5 @@
 import socket, os
-from Clases import transporte
+from .transporte import transporte
 class sesion:
 
     def __init__(self, nombre):

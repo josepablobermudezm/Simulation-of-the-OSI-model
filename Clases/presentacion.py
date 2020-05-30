@@ -1,4 +1,4 @@
-from Clases import sesion
+from .sesion import sesion
 class presentacion:
 
     def __init__(self, nombre):
