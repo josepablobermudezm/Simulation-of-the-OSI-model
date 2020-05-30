@@ -12,7 +12,3 @@ class sesion:
         transporte.enviarMensaje(None,c, mensaje)
         #cierra la sesion
         c.close()
-
-    def metodo(self):
-        """Imprime un saludo en pantalla."""
-        print(f"¡Hola, {self.nombre}!")
