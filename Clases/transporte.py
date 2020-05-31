@@ -1,6 +1,7 @@
 import socket, os
 from .enlace import enlace
 import time
+import random
 class transporte:
 
     def __init__(self, nombre):
@@ -17,12 +18,26 @@ class transporte:
         else:
             cantTramas = int((len(mensaje)/12))+1
         #envia la cantidad de tramas 
-        print("CANTIDAD DE TRAMAAAAAAAAAS "+ str(cantTramas))
-        c.send(str(cantTramas).encode('utf8', errors='replace'))    
+        c.send(str(cantTramas).encode('utf8', errors='replace')) 
+        
+        #Se define para verificar si el mensaje va a ser interrumpido por un error en el mensaje
+        falloTrama = random.randint(0, 1)        
+        
+
         if len(mensaje) <= 12:
             print("LLAMANDO A LA CAPA DE ENLACE DE DATOS")
             print("ENVIANDO UNICA TRAMA")
-            c.send(enlace.tobits(None,mensaje).encode('utf8', errors='replace'))
+            #validacion trama en enlace de datos
+            bits = enlace.tobits(None,mensaje)
+            validacion = enlace.validacionTrama(None,bits,falloTrama)
+            if validacion=="fallo":    
+                if bits[0] =="1": 
+                    aux = bits.replace('1', '0', 1)
+                    bits = aux
+                else:
+                    aux = bits.replace('0', '1', 1)
+                    bits = aux
+            c.send(bits.encode('utf8', errors='replace'))
         else:
             print("LLAMANDO A LA CAPA DE ENLACE DE DATOS")
             indice = 0
@@ -34,7 +49,17 @@ class transporte:
                     cont = 1
                     print("LLAMANDO A LA CAPA DE ENLACE DE DATOS")
                     time.sleep(1)
-                    c.send(enlace.tobits(None,trama).encode('utf8', errors='replace'))
+                    bits = enlace.tobits(None,trama)
+                    validacion = enlace.validacionTrama(None,bits,falloTrama)
+                    
+                    if validacion=="fallo":  
+                        if bits[0] =="1": 
+                            aux = bits.replace('1', '0', 1)
+                            bits = aux
+                        else:
+                            aux = bits.replace('0', '1', 1)
+                            bits = aux
+                    c.send(bits.encode('utf8', errors='replace'))
                     trama=""
                     trama += mensaje[indice]
                 else:
@@ -42,6 +67,18 @@ class transporte:
                         trama += mensaje[indice]   
                         print("TRAMA FINAL "+ enlace.tobits(None,trama))
                         print("LLAMANDO A LA CAPA DE ENLACE DE DATOS")
+
+                        #validacion trama en enlace de datos
+                        bits = enlace.tobits(None,trama)
+                        validacion = enlace.validacionTrama(None,bits,falloTrama)
+                    
+                        if validacion=="fallo":  
+                            if bits[0] =="1": 
+                                aux = bits.replace('1', '0', 1)
+                                bits = aux
+                            else:
+                                aux = bits.replace('0', '1', 1)
+                                bits = aux
                         c.send(enlace.tobits(None,trama).encode('utf8', errors='replace'))  
                     else:
                         trama += mensaje[indice]   
