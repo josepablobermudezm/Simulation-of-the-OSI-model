@@ -5,5 +5,8 @@ class transporte:
         self.nombre = nombre
 
     def enviarMensaje(self,c, mensaje):
-        print("Mensaje Enviado: "+ mensaje)
+        print("------------------")
+        print("CAPA DE TRANSPORTE")
+        print("MENSAJE DIGITADO: "+ mensaje)
         c.send(mensaje.encode('utf8', errors='replace'))
+        print("------------------")

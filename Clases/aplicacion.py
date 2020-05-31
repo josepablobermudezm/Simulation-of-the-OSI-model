@@ -31,8 +31,12 @@ class aplicacion:
                 cadena = palabra[:temp-3]
                 palabra = cadena    
             print (palabra)
-        os.system ("cls") 
+        os.system ("cls")
         #llama a la capa de presentacion
-        host="25.101.202.236"
+        host="25.3.190.217"
         puerto=44440
+        print("------------------")
+        print("MENSAJE DIGITADO")
+        print("CAPA DE APLICACION")
         presentacion.iniciarCliente(None,host,puerto,palabra)  
+        print("------------------")

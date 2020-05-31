@@ -91,7 +91,11 @@ class presentacion:
         return palabraAux
 
     def iniciarCliente(self, host, puerto, mensaje):
+        print("------------------")
+        print("CAPA DE PRESENTACION")
+        print("LLAMANDO A LA CAPA DE SESION")
         sesion.conectar(None,host, puerto, mensaje)
+        print("------------------")
 
 
 
