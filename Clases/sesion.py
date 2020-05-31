@@ -15,5 +15,6 @@ class sesion:
         transporte.enviarMensaje(None,c, mensaje)
         print("CERRANDO SESION")
         print("------------------")
+        print("FIN DE CAPA DE SESION")
         #cierra la sesion
         c.close()

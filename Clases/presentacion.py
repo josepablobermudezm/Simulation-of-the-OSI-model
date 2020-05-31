@@ -96,7 +96,4 @@ class presentacion:
         print("LLAMANDO A LA CAPA DE SESION")
         sesion.conectar(None,host, puerto, mensaje)
         print("------------------")
-
-
-
-#presentacion = presentacion("Pablo")
+        print("FIN DE CAPA DE PRESENTACION")

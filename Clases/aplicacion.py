@@ -40,3 +40,4 @@ class aplicacion:
         print("CAPA DE APLICACION")
         presentacion.iniciarCliente(None,host,puerto,palabra)  
         print("------------------")
+        print("FIN DE CAPA DE APLICACION")
