@@ -9,7 +9,7 @@ class aplicacion:
     def __init__(self, c):
         self.c = c
 
-    def teclapresionada(self):
+    def teclapresionada(self, IP):
         palabra=""
         c ="A"
         while ord(c)!=13:
@@ -33,7 +33,7 @@ class aplicacion:
             print (palabra)
         os.system ("cls")
         #llama a la capa de presentacion
-        host="25.3.190.217"
+        host = IP
         puerto=44440
         print("------------------")
         print("MENSAJE DIGITADO")
