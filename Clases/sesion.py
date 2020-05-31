@@ -12,7 +12,7 @@ class sesion:
         c = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         c.connect((host, puerto))
         #llama a la capa de tranporte
-        transporte.enviarMensaje(None,c, mensaje)
+        transporte.enviarMensaje(None,c,mensaje)
         print("CERRANDO SESION")
         print("------------------")
         print("FIN DE CAPA DE SESION")
