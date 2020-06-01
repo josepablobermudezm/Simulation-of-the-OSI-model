@@ -14,6 +14,7 @@ class enlace:
         print("FIN DE CAPA DE ENLACE DE DATOS")
         return result
     def validacionTrama(self, bits):
+        num = len(bits) + 16
         print("CAPA DE ENLACE DE DATOS")
         bits+="0000000000000000"
         valor = int(bits, 2)
@@ -21,11 +22,12 @@ class enlace:
         aux = 65521 - residuo
         suma = valor + aux
         binario = ''
+        
         while suma // 2 != 0:
             binario = str(suma % 2) + binario
             suma = suma // 2
-        if len(str(suma) + binario)!=112:
-            aux = 112-len(str(suma) + binario)
+        if len(str(suma) + binario)!=num:
+            aux = num-len(str(suma) + binario)
             cont=0
             b =""
             while(cont<aux):
